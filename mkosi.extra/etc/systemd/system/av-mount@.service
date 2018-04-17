@@ -1,0 +1,8 @@
+[Unit]
+Description=Mount %I
+BindsTo=dev-%i.device
+After=dev-%i.device
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/systemd-mount --discover --automount=no /dev/%I /media/%i

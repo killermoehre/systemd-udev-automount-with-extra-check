@@ -1,0 +1,9 @@
+[Unit]
+Description=Unmount %I
+RequiresMountsFor=/media/%i
+After=av-mount@%i.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/systemd-umount /media/%i
+ExecStartPost=/usr/bin/rmdir /media/%i

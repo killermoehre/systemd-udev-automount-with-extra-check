@@ -1,0 +1,15 @@
+# vim: ft=dosini
+[Distribution]
+Distribution=arch
+Release=current
+
+[Output]
+Format=raw_xfs
+Bootable=yes
+
+[Packages]
+Cache=/var/cache/pacman/pkg
+Packages=systemd dosfstools
+
+[Partitions]
+RootSize=3G

@@ -1,0 +1,10 @@
+[Unit]
+Description=Check /media/%i for bad stuff
+RequiresMountsFor=/media/%i
+Requires=av-mount@%i.service
+After=av-mount@%i.service
+OnFailure=av-umount@%i.service
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash -c 'sleep 10; test ! -e /media/%i/stuff'

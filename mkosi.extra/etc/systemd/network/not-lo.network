@@ -1,0 +1,11 @@
+[Match]
+Name=!lo
+
+[Network]
+DHCP=yes
+LinkLocalAddressing=no
+LLMNR=true
+MulticastDNS=true
+LLDP=true
+EmitLLDP=true
+IPv6AcceptRA=true

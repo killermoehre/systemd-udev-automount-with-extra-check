@@ -1,0 +1,10 @@
+SUBSYSTEM!="block", GOTO="mount_external_disks_end"
+ENV{ID_BUS}!="usb", GOTO="mount_external_disks_end"
+ENV{DEVTYPE}!="partition", GOTO="mount_external_disks_end"
+
+ACTION=="add", ENV{SYSTEMD_WANTS}+="av-scan@%k.service"
+ACTION=="remove", ENV{SYSTEMD_WANTS}+="av-umount@%k.service"
+#ACTION=="add" RUN+="/usr/bin/systemctl --no-block start av-mount@%k.service"
+#ACTION=="remove" RUN+="/usr/bin/systemctl --no-block stop av-mount@%k.service"
+
+LABEL="mount_external_disks_end"
